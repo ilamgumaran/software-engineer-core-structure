@@ -1,0 +1,27 @@
+## Agent Update: {{ status }}
+
+**Action:** {{ action_summary }}
+
+{% if branch %}**Branch:** `{{ branch }}`{% endif %}
+{% if pr_url %}**PR:** {{ pr_url }}{% endif %}
+{% if confluence_url %}**Documentation:** {{ confluence_url }}{% endif %}
+
+{% if details %}
+### Details
+{{ details }}
+{% endif %}
+
+{% if evaluation_summary %}
+### Evaluation Results
+{{ evaluation_summary }}
+{% endif %}
+
+{% if next_steps %}
+### Next Steps
+{% for step in next_steps %}
+- {{ step }}
+{% endfor %}
+{% endif %}
+
+---
+*Updated by Relevancy Engineering AI Agent*
