@@ -1,16 +1,31 @@
-# Multi-Role Software Engineering Agent Framework
+# HIO-Based Engineering Org Setup
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-An open, forkable framework for building AI-powered engineering agents that operate across **9 roles** — Architect, Developer, Tester, UX Expert, Product Manager, Project Manager, Program Manager, Data Scientist, and Customer Persona. The agent switches roles based on the task, works within your existing workflow, and is configurable for any engineering domain.
+How to **set up and run an engineering organization on HIO principles** -- purpose definition, role taxonomy, goals, effectiveness measures, and the transformation plan that gets you from where you are to a functioning HIO-aligned engineering org. This repo is the structural template; fork it, fill in your org's context, and run.
 
-**This repo is both the plan and the prompt.** Fork it, plug in your domain and infrastructure, and you have a complete agent configuration for your team.
+The day-to-day agentic toolkit that operates *inside* such an org lives downstream in [`software-engineering-hio-agent-framework`](https://github.com/ilamgumaran/software-engineering-hio-agent-framework).
+
+---
+
+## Where this sits in the family
+
+| # | Layer | Repo | What it is |
+|---|---|---|---|
+| 1 | Cognition foundation | [`thoughtexperiments`](https://github.com/ilamgumaran/thoughtexperiments) | Resonant Cognition -- a psychology-of-mind theory |
+| 2 | Generalized HIO framework | [`thought-org-with-human-ai-hybrid`](https://github.com/ilamgumaran/thought-org-with-human-ai-hybrid) | Orchestrating organic + inorganic intelligence at any scale, built on cognition principles |
+| 3 | **Engineering org applied** (this repo) | `software-engineer-core-structure` | Setting up an engineering organization on HIO principles -- roles, goals, effectiveness measures, transformation plan |
+| 4 | Day-to-day agentic toolkit | [`software-engineering-hio-agent-framework`](https://github.com/ilamgumaran/software-engineering-hio-agent-framework) | The main agentic workflow toolkit used inside such an HIO-aligned engineering org |
+
+This repo applies HIO methodology to the specific case of engineering organizations. The 9 roles below are the role taxonomy used when setting up such an org; goals and effectiveness measures here track whether the org is delivering on HIO's principles.
 
 ---
 
 ## The 9 Roles
 
-| Role | What It Does |
+The role taxonomy used when setting up an HIO-aligned engineering organization. The agent built from this template can switch between any of these roles based on the task; humans in the org typically hold a primary role plus one or two adjacent ones.
+
+| Role | What it does |
 |------|-------------|
 | **Architect** | Designs systems, evaluates tradeoffs, produces ADRs |
 | **Developer** | Writes, modifies, and debugs code across the stack |
@@ -22,7 +37,20 @@ An open, forkable framework for building AI-powered engineering agents that oper
 | **Data Scientist** | Analyzes data, builds models, designs experiments |
 | **Customer Persona** | Simulates customer reactions, validates UX from user perspectives |
 
-The agent combines roles on a single task — a feature request engages the PM (requirements), Architect (design), Developer (code), Tester (tests), and PjM (tracking).
+A single feature request will engage several roles -- PM (requirements), Architect (design), Developer (code), Tester (tests), Project Manager (tracking). Under HIO, the same person may *hold* multiple roles in a session; the relevant unit of work is outcome, not job title.
+
+---
+
+## Goals and effectiveness measures
+
+An HIO-aligned engineering org is measured against the **4 Core Principles** of HIO ([upstream](https://github.com/ilamgumaran/thought-org-with-human-ai-hybrid#core-principles)):
+
+1. **Purpose as a Living Force** -- can every team member explain the org's purpose in their own words and connect their work to it?
+2. **Harmonize, Don't Divide** -- are humans and AI organized around outcomes, not separate territories?
+3. **Fulfillment as the Engine** -- is human fulfillment measured alongside delivery, and acted on?
+4. **Measure the Whole Ecosystem** -- is no metric optimized while another silently degrades?
+
+Concrete instruments per principle, plus the role-by-role goals each role contributes to, are detailed in `plan/` and the goals templates in `org/`. The transformation plan (below) is the path that takes an existing or new org to passing all four checks.
 
 ---
 
@@ -30,8 +58,8 @@ The agent combines roles on a single task — a feature request engages the PM (
 
 | You are... | Start here |
 |-----------|-----------|
-| A **team lead** evaluating AI agents | `PLAN.md` → `plan/00-overview.md` |
-| An **engineer** building the agent | `plan/03-implementation-guide.md` |
+| A **leader** setting up or restructuring an engineering org on HIO | `PLAN.md` then `plan/00-overview.md` |
+| An **engineer** in such an org wanting to understand the structure | `roles/README.md` |
 | An **org adopting** for your team | `CUSTOMIZATION.md` |
 | **Anyone** understanding a file/dir | `DIRECTORY_GUIDE.md` |
 
@@ -42,22 +70,23 @@ The agent combines roles on a single task — a feature request engages the PM (
 ```
 /
 +-- README.md                        # This file
-+-- LICENSE                          # MIT License — no strings attached
-+-- PLAN.md                          # Master plan (7 phases, 24 weeks)
++-- LICENSE                          # MIT License -- no strings attached
++-- AGENTS.md                        # Guidance for AI agents working in this repo
++-- PLAN.md                          # Transformation plan
 +-- CUSTOMIZATION.md                 # How to fork and adapt for your org
 +-- DIRECTORY_GUIDE.md               # Purpose and usage of every file
 |
-+-- roles/                           # The 9 agent roles
++-- roles/                           # The 9 roles -- HIO-aligned engineering org taxonomy
 |   +-- README.md                    # Role system overview and switching logic
-|   +-- architect.md                 # Architect role definition
-|   +-- developer.md                 # Developer role definition
-|   +-- tester.md                    # Tester role definition
-|   +-- ux-expert.md                 # UX Expert role definition
-|   +-- product-manager.md           # Product Manager role definition
-|   +-- project-manager.md           # Project Manager role definition
-|   +-- program-manager.md           # Program Manager role definition
-|   +-- data-scientist.md            # Data Scientist role definition
-|   +-- customer-persona.md          # Customer Persona role definition
+|   +-- architect.md
+|   +-- developer.md
+|   +-- tester.md
+|   +-- ux-expert.md
+|   +-- product-manager.md
+|   +-- project-manager.md
+|   +-- program-manager.md
+|   +-- data-scientist.md
+|   +-- customer-persona.md
 |
 +-- domains/                         # Domain-specific knowledge (extensible)
 |   +-- README.md                    # How domains work, how to add yours
@@ -76,13 +105,6 @@ The agent combines roles on a single task — a feature request engages the PM (
 |   +-- 04-foundational-skills.md    # Cross-role problem-solving skills
 |   +-- 05-foundational-tools.md     # Full toolchain (OS through AI tools)
 |   +-- phases/                      # Phase-by-phase implementation plans
-|       +-- phase-1-cli-foundation.md
-|       +-- phase-2-integrations.md       (Developer + Tester roles)
-|       +-- phase-3-evaluation-engine.md  (Workflow integrations)
-|       +-- phase-4-data-analysis.md      (Architect + Data Scientist)
-|       +-- phase-5-documentation-automation.md (PM + UX roles)
-|       +-- phase-6-ui-layer.md           (Domain + doc automation)
-|       +-- phase-7-ui-layer.md           (Web interface)
 |
 +-- org/                             # Organization config (fill in when adopting)
 |   +-- profile.md                   # Team context and mission
@@ -90,54 +112,22 @@ The agent combines roles on a single task — a feature request engages the PM (
 |   +-- policies.md                  # Agent guardrails and boundaries
 |
 +-- tools/                           # AI tool capability guides
-|   +-- claude-code/                 # Claude Code: setup, capabilities, workflows
-|   +-- github-copilot/              # Copilot: IDE integration, workflows
-|   +-- gemini-enterprise/           # Gemini: large-context analysis, workflows
-|   +-- glean/                       # Glean: enterprise search, workflows
+|   +-- claude-code/
+|   +-- github-copilot/
+|   +-- gemini-enterprise/
+|   +-- glean/
 |
 +-- agent-core/                      # Agent implementation (future code)
-|   +-- cli/                         # CLI interface
-|   +-- integrations/                # Jira, Confluence, Git integrations
-|   +-- evaluations/                 # Domain evaluation framework
-|   +-- data-analysis/               # Data analysis pipeline
-|   +-- app-builder/                 # Application scaffolding
 |
 +-- templates/                       # Document generation templates
-|   +-- confluence/                  # Confluence page templates
-|   +-- jira/                        # Jira comment templates
-|   +-- evaluation-reports/          # Evaluation output templates
-|
 +-- docs/                            # Team documentation
-|   +-- guides/                      # How-to guides
-|   +-- architecture/                # Architecture Decision Records
-|
 +-- config/                          # Runtime configuration
-|
 +-- prompts/                         # Prompts to recreate this entire framework
-|   +-- README.md                    # How the prompt system works
-|   +-- 00-master.md                 # Single prompt to generate everything
-|   +-- 01-scaffold.md              # Directory structure and root files
-|   +-- 02-roles.md                 # Generate 9 role definitions
-|   +-- 03-domains.md               # Generate domain extension system
-|   +-- 04-plan.md                  # Generate all plan documents
-|   +-- 05-tools.md                 # Generate AI tool guides
-|   +-- 06-org.md                   # Generate org configuration templates
-|   +-- 07-templates.md             # Generate document templates
-|   +-- 08-agent-config.md          # Generate agent configuration guide
-|   +-- 09-documentation.md         # Generate README, guides, customization
 ```
 
 ---
 
 ## Quick Start
-
-### Use as-is (with relevancy engineering domain)
-
-```bash
-git clone https://github.com/ilamgumaran/relevancyengineer.git
-cd relevancyengineer
-# Read: PLAN.md → plan/03-implementation-guide.md → roles/README.md
-```
 
 ### Fork for your team
 
@@ -145,15 +135,21 @@ cd relevancyengineer
 git clone https://github.com/YOUR_ORG/YOUR_FORK.git
 cd YOUR_FORK
 
-# 1. Define your org
+# 1. Read upstream HIO methodology to ground yourself
+#    https://github.com/ilamgumaran/thought-org-with-human-ai-hybrid
+
+# 2. Define your org
 vi org/profile.md org/infrastructure.md org/policies.md
 
-# 2. Add your domain (or use relevancy as-is)
+# 3. Add your domain (or use relevancy as-is)
 mkdir domains/your-domain
 # Copy structure from domains/relevancy/
 
-# 3. Follow the plan
-# Read: CUSTOMIZATION.md → plan/03-implementation-guide.md
+# 4. Follow the plan
+# Read: CUSTOMIZATION.md -> plan/03-implementation-guide.md
+
+# 5. Adopt the day-to-day agentic toolkit
+#    https://github.com/ilamgumaran/software-engineering-hio-agent-framework
 ```
 
 ---
@@ -165,7 +161,7 @@ $ agent task --jira ENG-123 "Add user preference API"
 
 [Product Manager] Reading requirements from ENG-123...
   Requirements: REST API for CRUD on user preferences
-  Missing: Max preference size not specified → flagging
+  Missing: Max preference size not specified -> flagging
 
 [Architect] Assessing design...
   Pattern: Follows existing API conventions in /api/v1/
@@ -177,14 +173,12 @@ $ agent task --jira ENG-123 "Add user preference API"
   Tests: 12 (unit + integration)
 
 [Tester] Validating...
-  All tests passing ✓
+  All tests passing
   Coverage: 94% on new code
-  Edge case flagged: empty preferences object
 
 [Project Manager] Updating tracking...
   PR #204 created
-  ENG-123 → In Review
-  Confluence page updated
+  ENG-123 -> In Review
 ```
 
 ---
@@ -200,9 +194,19 @@ $ agent task --jira ENG-123 "Add user preference API"
 
 ---
 
+## Relationship to the rest of the family
+
+- **Upstream** -- the HIO methodology this repo applies lives in [`thought-org-with-human-ai-hybrid`](https://github.com/ilamgumaran/thought-org-with-human-ai-hybrid). Read it first to ground yourself in the principles.
+- **Cognition source** -- HIO itself rests on a theory of cognition; that theory lives in [`thoughtexperiments`](https://github.com/ilamgumaran/thoughtexperiments) (Resonant Cognition Framework).
+- **Downstream** -- once your engineering org is set up on HIO, the day-to-day agentic toolkit lives in [`software-engineering-hio-agent-framework`](https://github.com/ilamgumaran/software-engineering-hio-agent-framework). It supplies the 6 agent types, sprint ceremonies, and multi-repo orchestration.
+
+This repo and the day-to-day toolkit overlap in places (cognitive functions, units, metrics, transformation phases were originally drafted in the toolkit repo). The canonical home for **org-setup** content is here; the canonical home for **agent operation** is downstream. Where overlap exists, both repos cross-link so consumers find one source of truth.
+
+---
+
 ## License
 
-MIT — use it, fork it, modify it, sell it, no strings attached.
+MIT -- use it, fork it, modify it, sell it, no strings attached.
 
 ---
 
@@ -212,7 +216,7 @@ Contributions welcome:
 - **New roles**: Add to `roles/`
 - **New domains**: Add to `domains/`
 - **New tool guides**: Add to `tools/`
-- **Framework improvements**: PRs against plan docs
+- **Goals/measures additions**: PR against the plan documents
 - **Workflow recipes**: Add to relevant `workflows.md`
 
 ---
